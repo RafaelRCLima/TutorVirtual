@@ -1,5 +1,5 @@
 class Message {
-  constructor(content) {
+  constructor (content) {
     this.content = content
   }
 }

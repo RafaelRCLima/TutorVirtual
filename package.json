@@ -2,12 +2,18 @@
   "name": "tutor_virtual",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "https://github.com/RafaelRCLima/TutorVirtual.git",
+  "author": "Rafael Lima <rafael.lima19-92@hotmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
   "scripts": {
     "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.6"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -17,6 +23,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^2.0.3",
+    "sequelize-cli": "^5.5.1",
     "sucrase": "^3.13.0"
   }
 }

@@ -7,8 +7,7 @@ class User extends Model {
       name: Sequelize.STRING,
       email: Sequelize.STRING,
       password: Sequelize.VIRTUAL,
-      password_hash: Sequelize.STRING,
-      active: Sequelize.BOOLEAN
+      password_hash: Sequelize.STRING
     },
     {
       sequelize

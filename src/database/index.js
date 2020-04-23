@@ -2,7 +2,7 @@ import Sequelize from 'sequelize'
 
 import User from '../app/models/User'
 
-import { development } from '../config/database'
+import { development, test } from '../config/database'
 
 const models = [User]
 
@@ -12,7 +12,7 @@ class Database {
   }
 
   init () {
-    this.connection = new Sequelize(development)
+    this.connection = new Sequelize(process.env.NODE_ENV === 'test' ? test : development)
 
     models
       .map(model => model.init(this.connection))

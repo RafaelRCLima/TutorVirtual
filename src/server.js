@@ -1,3 +1,3 @@
 import app from './app'
 
-app.listen(3030)
+export default app.listen(3030)

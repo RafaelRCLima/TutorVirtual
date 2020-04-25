@@ -22,6 +22,17 @@ describe('Test for user endpoints', () => {
       .send({ name: 'Test2' })
     expect(response.statusCode).toBe(200)
   })
+
+  test('Should update an user', async () => {
+    const { id } = await User.create({
+      name: 'Delete',
+      email: 'delete@email.com',
+      password_hash: '12345'
+    })
+    const response = await request(app)
+      .delete('/user/' + id)
+    expect(response.statusCode).toBe(200)
+  })
 })
 
 afterAll(async done => {

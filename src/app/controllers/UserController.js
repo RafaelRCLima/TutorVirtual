@@ -25,6 +25,20 @@ class UserController {
       email
     })
   }
+
+  async delete (req, res) {
+    const user = await User.findByPk(req.params.id)
+
+    await user.destroy()
+    const { id, name, email } = user
+
+    res.status(200).json({
+      message: 'Usuário excluído',
+      id,
+      name,
+      email
+    })
+  }
 }
 
 export default new UserController()

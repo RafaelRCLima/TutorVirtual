@@ -12,5 +12,6 @@ routes.get('/', (req, res) => {
 routes.post('/ask', messageController.askTutor)
 
 routes.post('/user', UserController.create)
+routes.put('/user/:id', UserController.update)
 
 export default routes

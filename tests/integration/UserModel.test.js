@@ -1,7 +1,7 @@
 import Database from '../../src/database'
 import User from '../../src/app/models/User'
 
-describe('Test for User', () => {
+describe('Test for User model', () => {
   test('Saving and Deleting User', async () => {
     const user = await User.create({
       name: 'User', email: 'user@email.com', password_hash: '123456'

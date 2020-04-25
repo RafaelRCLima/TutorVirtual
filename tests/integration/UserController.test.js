@@ -1,9 +1,22 @@
 import request from 'supertest'
 import app from '../../src/server'
 import Database from '../../src/database'
+
 import User from '../../src/app/models/User'
 
 describe('Test for user endpoints', () => {
+  let token
+
+  beforeAll(async () => {
+    await User.create({ name: 'Auth', email: 'auth@email.com', password: 'authpass' })
+
+    const response = await request(app)
+      .post('/session')
+      .send({ email: 'auth@email.com', password: 'authpass' })
+
+    token = response.body.token
+  })
+
   test('Should save an user', async () => {
     const response = await request(app)
       .post('/user')
@@ -19,6 +32,7 @@ describe('Test for user endpoints', () => {
     })
     const response = await request(app)
       .put('/user/' + id)
+      .set('Authorization', 'bearer ' + token)
       .send({ name: 'Test2' })
     expect(response.statusCode).toBe(200)
   })
@@ -31,6 +45,7 @@ describe('Test for user endpoints', () => {
     })
     const response = await request(app)
       .delete('/user/' + id)
+      .set('Authorization', 'bearer ' + token)
     expect(response.statusCode).toBe(200)
   })
 })

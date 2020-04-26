@@ -26,9 +26,8 @@ describe('Test for messageController', () => {
   })
 })
 
-afterAll(async done => {
+afterAll(async () => {
   await Database.connection.models.User.truncate({ cascade: true })
   await Database.connection.close()
   app.close()
-  done()
 })

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
 import authMiddleware from './app/middlewares/auth'
-import messageController from '../src/app/controllers/messageController'
+import MessageController from './app/controllers/MessageController'
 import UserController from './app/controllers/UserController'
 import SessionController from './app/controllers/SessionController'
 
@@ -16,7 +16,7 @@ routes.post('/session', SessionController.store)
 
 routes.use(authMiddleware)
 
-routes.post('/ask', messageController.askTutor)
+routes.post('/ask', MessageController.askTutor)
 
 routes.put('/user/:id', UserController.update)
 routes.delete('/user/:id', UserController.delete)

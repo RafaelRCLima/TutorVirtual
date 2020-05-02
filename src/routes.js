@@ -5,6 +5,7 @@ import MessageController from './app/controllers/MessageController'
 import UserController from './app/controllers/UserController'
 import SessionController from './app/controllers/SessionController'
 import FaqController from './app/controllers/FaqController'
+import CodeController from './app/controllers/CodeController'
 
 const routes = new Router()
 
@@ -24,5 +25,8 @@ routes.delete('/user/:id', UserController.delete)
 
 routes.post('/faq', FaqController.store)
 routes.get('/faq', FaqController.list)
+
+routes.get('/table_test', CodeController.tableTest)
+routes.get('/examples', CodeController.codeExample)
 
 export default routes

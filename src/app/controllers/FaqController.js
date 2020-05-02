@@ -4,7 +4,12 @@ class FaqController {
   async store (req, res) {
     try {
       const { id, subject, question, answer } = await Faq.create(req.body)
-      return res.status(201).json({ id, subject, question, answer })
+      return res.status(201).json({
+        id,
+        subject,
+        question,
+        answer
+      })
     } catch (err) {
       return res.status(400).json({ error: 'Não foi possível inserir o conteúdo' })
     }

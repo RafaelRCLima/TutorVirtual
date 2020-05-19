@@ -18,7 +18,10 @@ class FaqController {
   async list (req, res) {
     try {
       const faqList = await Faq.find()
-      return res.status(200).json(faqList)
+      return res.status(200).json(faqList.map(faq => {
+        const { subject, question, answer } = faq
+        return { subject, question, answer }
+      }))
     } catch (err) {
       return res.status(500).json({ error: 'Não foi possível listar os itens' })
     }

@@ -16,12 +16,18 @@ module.exports = {
     }
   },
   test: {
-    username: 'root',
-    password: null,
-    database: 'database_test',
-    host: '127.0.0.1',
     dialect: 'mysql',
-    operatorsAliases: false
+    host: process.env.DB_HOST,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_TEST,
+    define: {
+      timestamps: true,
+      underscored: true,
+      underscoredAll: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   },
   production: {
     username: 'root',
